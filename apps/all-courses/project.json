@@ -1,0 +1,121 @@
+{
+  "name": "all-courses",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "courses-app",
+  "sourceRoot": "apps/all-courses/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/all-courses",
+        "index": "apps/all-courses/src/index.html",
+        "main": "apps/all-courses/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/all-courses/tsconfig.app.json",
+        "assets": [
+          "apps/all-courses/src/favicon.ico",
+          "apps/all-courses/src/assets"
+        ],
+        "styles": ["apps/all-courses/src/styles.sass"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/all-courses/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/all-courses/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-dev-server",
+      "options": {
+        "port": 4203,
+        "publicHost": "http://localhost:4203"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "all-courses:build:production"
+        },
+        "development": {
+          "browserTarget": "all-courses:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "all-courses:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/all-courses/**/*.ts",
+          "apps/all-courses/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/all-courses/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "all-courses:build",
+        "port": 4203
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "all-courses:build:development"
+        },
+        "production": {
+          "buildTarget": "all-courses:build:production"
+        }
+      }
+    }
+  }
+}
