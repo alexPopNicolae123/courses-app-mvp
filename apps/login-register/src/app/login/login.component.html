@@ -1,0 +1,72 @@
+<section class="login">
+  <div class="login-container">
+    <div class="row">
+      <div class="col-6">
+        <h1 class="title">Accesa Courses</h1>
+        <form class="login-form" [formGroup]="loginForm">
+          <div class="email">
+            <label>Email or UserName</label>
+            <input
+              class="email-input"
+              type="text"
+              formControlName="email"
+              placeholder="Email"
+            />
+            <span
+              *ngIf="(loginForm.controls['email'].touched || loginForm.controls['email'].dirty) && loginForm.controls['email'].errors?.['required']"
+              class="err-message"
+            >
+              Email required
+            </span>
+            <span
+              *ngIf="(loginForm.controls['email'].touched || loginForm.controls['email'].dirty) && loginForm.controls['email'].errors?.['email']"
+              class="err-message"
+            >
+              Enter a valid email address
+            </span>
+          </div>
+          <div class="password">
+            <label>Password</label>
+            <input
+              class="password-input"
+              type="password"
+              formControlName="password"
+              placeholder="Password"
+            />
+            <span
+              *ngIf="(loginForm.controls['password'].touched || loginForm.controls['password'].dirty) && loginForm.controls['password'].errors?.['required']"
+              class="err-message"
+            >
+              This field is required
+            </span>
+
+            <span
+              *ngIf="(loginForm.controls['password'].touched || loginForm.controls['password'].dirty) && loginForm.controls['password'].errors?.['minlength']"
+              class="err-message"
+            >
+              Password must be a least 8 characters
+            </span>
+          </div>
+          <div class="submit-button">
+            <button type="submit" class="btn-primary" (click)="onSubmit()">
+              Sign In
+            </button>
+          </div>
+          <div class="forgot-password">
+            <!--Optional-->
+            <a class="link" routerLink="">Forgot Password?</a>
+          </div>
+        </form>
+        <div class="register-btn">
+          <!--TODO: create the route to register module-->
+          <button class="register" type="button" (click)="onNavigateTo('')">
+            Create an account
+          </button>
+        </div>
+      </div>
+      <div class="col-6-brand">
+        <h1 class="brand">Accesa Courses MVP</h1>
+      </div>
+    </div>
+  </div>
+</section>
