@@ -14,8 +14,17 @@
               formControlName="email"
               placeholder="Email"
             />
-            <span class="err-message" *ngIf="errorMessages.emailMessages">
-              {{ errorMessages.emailMessages }}
+            <span
+              *ngIf="isFieldValid('email', 'required')"
+              class="err-message"
+            >
+              Email required
+            </span>
+            <span
+              *ngIf="isFieldValid('email', 'email')"
+              class="err-message"
+            >
+              Enter a valid email address
             </span>
           </div>
 
@@ -28,8 +37,18 @@
               formControlName="password"
               placeholder="Password"
             />
-            <span class="err-message" *ngIf="errorMessages.passwordMessages">
-              {{ errorMessages.passwordMessages }}
+            <span
+              *ngIf="isFieldValid('password', 'required')"
+              class="err-message"
+            >
+              This field is required
+            </span>
+
+            <span
+              *ngIf="isFieldValid('password', 'minLength')"
+              class="err-message"
+            >
+              Password must be a least 8 characters
             </span>
           </div>
 
@@ -44,7 +63,7 @@
             <a class="link" routerLink="">Forgot Password?</a>
           </div>
         </form>
-        
+
         <div class="register-btn">
           <!--TODO: create the route to register module-->
           <button class="register" type="button" (click)="onNavigateTo('')">
