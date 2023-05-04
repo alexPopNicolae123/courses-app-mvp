@@ -13,13 +13,13 @@
               placeholder="Email"
             />
             <span
-              *ngIf="(loginForm.controls['email'].touched || loginForm.controls['email'].dirty) && loginForm.controls['email'].errors?.['required']"
+              *ngIf="isFieldValid('email', 'required')"
               class="err-message"
             >
               Email required
             </span>
             <span
-              *ngIf="(loginForm.controls['email'].touched || loginForm.controls['email'].dirty) && loginForm.controls['email'].errors?.['email']"
+              *ngIf="isFieldValid('email', 'email')"
               class="err-message"
             >
               Enter a valid email address
@@ -34,14 +34,14 @@
               placeholder="Password"
             />
             <span
-              *ngIf="(loginForm.controls['password'].touched || loginForm.controls['password'].dirty) && loginForm.controls['password'].errors?.['required']"
+              *ngIf="isFieldValid('password', 'required')"
               class="err-message"
             >
               This field is required
             </span>
 
             <span
-              *ngIf="(loginForm.controls['password'].touched || loginForm.controls['password'].dirty) && loginForm.controls['password'].errors?.['minlength']"
+              *ngIf="isFieldValid('password', 'minLength')"
               class="err-message"
             >
               Password must be a least 8 characters

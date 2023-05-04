@@ -13,7 +13,7 @@
                 placeholder="First Name"
               />
               <span
-                *ngIf="(registerForm.controls['firstName'].touched || registerForm.controls['firstName'].dirty) && registerForm.controls['firstName'].errors?.['required']"
+                *ngIf="isFieldValid('firstName')"
                 class="err-message"
               >
                 First Name required
@@ -95,4 +95,3 @@
       </div>
     </div>
   </section>
-  

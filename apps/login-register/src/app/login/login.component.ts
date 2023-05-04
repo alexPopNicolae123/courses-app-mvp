@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {ValidationsService} from "../services/validations.service";
 
 @Component({
   selector: 'courses-app-login',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router, private validationService: ValidationsService) {}
 
   ngOnInit(): void {
     this.onInitLoginForm();
@@ -41,5 +42,9 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
     });
+  }
+
+  isFieldValid(field: string, errorType: string) {
+    return this.validationService.isFieldValid(field,errorType, this.loginForm)
   }
 }
