@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ValidationsService} from "../services/validations.service";
 
 @Component({
     selector: 'courses-app-register',
@@ -9,7 +10,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class RegisterComponent implements OnInit {
     registerForm: FormGroup = new FormGroup({});
 
-    constructor(private fb: FormBuilder) {
+    constructor(private fb: FormBuilder, private validators: ValidationsService) {
     }
 
     ngOnInit(): void {
@@ -37,17 +38,7 @@ export class RegisterComponent implements OnInit {
         });
     }
 
-     isFieldValid(field: string) {
-        return (
-            this.registerForm.controls[field].touched || this.registerForm.controls[field].dirty)
-            && this.registerForm.controls[field].errors?.['required']
+     isFieldValid(field: string, errorType: string) {
+        return this.validators.isFieldValid(field, errorType, this.registerForm)
     }
-
-    // get isFieldValid() {
-    //     return (
-    //         this.registerForm.controls['lastName'].touched || this.registerForm.controls['lastName'].dirty)
-    //         && this.registerForm.controls['lastName'].errors?.['required']
-    // }
-
-
 }
