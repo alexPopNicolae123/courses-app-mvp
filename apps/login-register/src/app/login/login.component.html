@@ -4,6 +4,8 @@
       <div class="col-6">
         <h1 class="title">Accesa Courses</h1>
         <form class="login-form" [formGroup]="loginForm">
+
+          <!--Email-->
           <div class="email">
             <label>Email or UserName</label>
             <input
@@ -12,19 +14,12 @@
               formControlName="email"
               placeholder="Email"
             />
-            <span
-              *ngIf="(loginForm.controls['email'].touched || loginForm.controls['email'].dirty) && loginForm.controls['email'].errors?.['required']"
-              class="err-message"
-            >
-              Email required
-            </span>
-            <span
-              *ngIf="(loginForm.controls['email'].touched || loginForm.controls['email'].dirty) && loginForm.controls['email'].errors?.['email']"
-              class="err-message"
-            >
-              Enter a valid email address
+            <span class="err-message" *ngIf="errorMessages.emailMessages">
+              {{ errorMessages.emailMessages }}
             </span>
           </div>
+
+          <!--Password-->
           <div class="password">
             <label>Password</label>
             <input
@@ -33,21 +28,13 @@
               formControlName="password"
               placeholder="Password"
             />
-            <span
-              *ngIf="(loginForm.controls['password'].touched || loginForm.controls['password'].dirty) && loginForm.controls['password'].errors?.['required']"
-              class="err-message"
-            >
-              This field is required
-            </span>
-
-            <span
-              *ngIf="(loginForm.controls['password'].touched || loginForm.controls['password'].dirty) && loginForm.controls['password'].errors?.['minlength']"
-              class="err-message"
-            >
-              Password must be a least 8 characters
+            <span class="err-message" *ngIf="errorMessages.passwordMessages">
+              {{ errorMessages.passwordMessages }}
             </span>
           </div>
-          <div class="submit-button">
+
+          <!--Buttons-->
+          <div class="submit-btn">
             <button type="submit" class="btn-primary" (click)="onSubmit()">
               Sign In
             </button>
@@ -57,6 +44,7 @@
             <a class="link" routerLink="">Forgot Password?</a>
           </div>
         </form>
+        
         <div class="register-btn">
           <!--TODO: create the route to register module-->
           <button class="register" type="button" (click)="onNavigateTo('')">
