@@ -1,0 +1,86 @@
+<section class="register">
+  <div class="register-container">
+    <div class="row">
+      <div class="col-6">
+        <h1 class="title">Register</h1>
+        <form class="register-form" [formGroup]="registerForm">
+          <div class="first-name">
+            <label>First Name</label>
+            <input
+              class="firstName-input"
+              type="text"
+              formControlName="firstName"
+              placeholder="First Name"
+            />
+            <span
+              *ngIf="isFieldValid('firstName', 'required')"
+              class="err-message"
+            >
+              First Name required
+            </span>
+          </div>
+          <div class="last-name">
+            <label>Last Name</label>
+            <input
+              class="lastName-input"
+              type="text"
+              formControlName="lastName"
+              placeholder="Last Name"
+            />
+            <span
+              *ngIf="isFieldValid('lastName', 'required')"
+              class="err-message"
+            >
+              Last Name required
+            </span>
+          </div>
+          <div class="email">
+            <label>Email</label>
+            <input
+              class="email-input"
+              type="text"
+              formControlName="email"
+              placeholder="Email"
+            />
+            <span *ngIf="isFieldValid('email', 'required')" class="err-message">
+              Email required
+            </span>
+            <span *ngIf="isFieldValid('email', 'email')" class="err-message">
+              Enter a valid email address
+            </span>
+          </div>
+          <div class="password">
+            <label>Password</label>
+            <input
+              class="password-input"
+              type="password"
+              formControlName="password"
+              placeholder="Password"
+            />
+            <span
+              *ngIf="isFieldValid('password', 'required')"
+              class="err-message"
+            >
+              This field is required
+            </span>
+
+            <span
+              *ngIf="isFieldValid('password', 'minlength')"
+              class="err-message"
+            >
+              Password must be a least 8 characters
+            </span>
+          </div>
+          <div class="submit-button">
+            <button type="submit" class="btn-primary" (click)="onSubmit()">
+              Register
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="col-6-brand">
+        <h1 class="brand">Accesa Courses MVP</h1>
+      </div>
+    </div>
+  </div>
+</section>
