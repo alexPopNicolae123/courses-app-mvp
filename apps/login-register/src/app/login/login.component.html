@@ -4,7 +4,6 @@
       <div class="col-6">
         <h1 class="title">Accesa Courses</h1>
         <form class="login-form" [formGroup]="loginForm">
-
           <!--Email-->
           <div class="email">
             <label>Email or UserName</label>
@@ -14,16 +13,10 @@
               formControlName="email"
               placeholder="Email"
             />
-            <span
-              *ngIf="isFieldValid('email', 'required')"
-              class="err-message"
-            >
+            <span *ngIf="isFieldValid('email', 'required')" class="err-message">
               Email required
             </span>
-            <span
-              *ngIf="isFieldValid('email', 'email')"
-              class="err-message"
-            >
+            <span *ngIf="isFieldValid('email', 'email')" class="err-message">
               Enter a valid email address
             </span>
           </div>
@@ -45,7 +38,7 @@
             </span>
 
             <span
-              *ngIf="isFieldValid('password', 'minLength')"
+              *ngIf="isFieldValid('password', 'minlength')"
               class="err-message"
             >
               Password must be a least 8 characters

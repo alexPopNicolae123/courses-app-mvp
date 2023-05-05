@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {ValidationsService} from "../services/validations.service";
+import { ValidationsService } from '../services/validations.service';
 
 @Component({
   selector: 'courses-app-login',
@@ -11,7 +11,11 @@ import {ValidationsService} from "../services/validations.service";
 export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder, private router: Router, private validationService: ValidationsService) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private validationService: ValidationsService
+  ) {}
 
   ngOnInit(): void {
     this.onInitLoginForm();
@@ -44,7 +48,17 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  /**
+   * Method to set the error messages
+   * @param field
+   * @param errorType
+   * @returns
+   */
   isFieldValid(field: string, errorType: string) {
-    return this.validationService.isFieldValid(field,errorType, this.loginForm)
+    return this.validationService.isFieldValid(
+      field,
+      errorType,
+      this.loginForm
+    );
   }
 }
