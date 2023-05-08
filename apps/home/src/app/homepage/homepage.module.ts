@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HomepageComponent } from './homepage.component';
 import {Route, RouterModule} from "@angular/router";
 import {MatButtonModule} from "@angular/material/button";
+import {ApiCallsService} from "@courses-app/shared/api";
+import {HttpClientModule} from "@angular/common/http";
 
 const homeRoutes: Route[] = [
   {path: '', component: HomepageComponent}
@@ -10,6 +12,7 @@ const homeRoutes: Route[] = [
 
 @NgModule({
   declarations: [HomepageComponent],
-  imports: [CommonModule, RouterModule.forChild(homeRoutes), MatButtonModule],
+  providers: [ApiCallsService],
+  imports: [CommonModule,HttpClientModule, RouterModule.forChild(homeRoutes), MatButtonModule]
 })
 export class HomepageModule {}
