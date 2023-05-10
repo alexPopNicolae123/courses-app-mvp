@@ -24,7 +24,7 @@ export const appRoutes: Route[] = [
   {
     path: 'all-courses',
     loadChildren: () =>
-      import('all-courses/Module').then((m) => m.RemoteEntryModule),
+      import('all-courses/Module').then((m) => m.CoursesListModule),
   },
   {
     path: 'login-register',

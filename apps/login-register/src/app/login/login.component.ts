@@ -6,7 +6,7 @@ import { ValidationsService } from '../services/validations.service';
 @Component({
   selector: 'courses-app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.sass'],
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
@@ -34,8 +34,7 @@ export class LoginComponent implements OnInit {
    * Method to navigate to the register module
    */
   onNavigateTo(url: string): void {
-    //this.router.navigateByUrl(url);
-    window.location.href = url;
+    this.router.navigateByUrl(url);
   }
 
   /**

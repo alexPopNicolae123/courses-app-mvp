@@ -5,7 +5,7 @@ import { ValidationsService } from '../services/validations.service';
 @Component({
   selector: 'courses-app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+  styleUrls: ['./register.component.sass'],
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({});

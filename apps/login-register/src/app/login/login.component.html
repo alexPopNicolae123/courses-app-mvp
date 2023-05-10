@@ -1,72 +1,65 @@
-<section class="login">
-  <div class="login-container">
-    <div class="row">
-      <div class="col-6">
-        <h1 class="title">Accesa Courses</h1>
-        <form class="login-form" [formGroup]="loginForm">
-          <!--Email-->
-          <div class="email">
-            <label>Email or UserName</label>
-            <input
-              class="email-input"
-              type="text"
-              formControlName="email"
-              placeholder="Email"
-            />
-            <span *ngIf="isFieldValid('email', 'required')" class="err-message">
-              Email required
-            </span>
-            <span *ngIf="isFieldValid('email', 'email')" class="err-message">
-              Enter a valid email address
-            </span>
-          </div>
+<section class="container">
+  <h1 class="title">Accesa MVP</h1>
+  <form class="login-form" [formGroup]="loginForm">
+    <!--Email-->
+    <mat-form-field appearance="fill">
+      <mat-label>Email or UserName</mat-label>
+      <input
+        matInput
+        class="email-input"
+        type="text"
+        formControlName="email"
+        placeholder="Email"
+        required
+      />
+      <mat-error *ngIf="isFieldValid('email', 'required')" color="warn">
+        Email required
+      </mat-error>
+      <mat-error *ngIf="isFieldValid('email', 'email')" color="warn">
+        Enter a valid email address
+      </mat-error>
+    </mat-form-field>
 
-          <!--Password-->
-          <div class="password">
-            <label>Password</label>
-            <input
-              class="password-input"
-              type="password"
-              formControlName="password"
-              placeholder="Password"
-            />
-            <span
-              *ngIf="isFieldValid('password', 'required')"
-              class="err-message"
-            >
-              This field is required
-            </span>
+    <!--Password-->
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        class="password-input"
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <mat-error *ngIf="isFieldValid('password', 'required')">
+        This field is required
+      </mat-error>
 
-            <span
-              *ngIf="isFieldValid('password', 'minlength')"
-              class="err-message"
-            >
-              Password must be a least 8 characters
-            </span>
-          </div>
+      <mat-error *ngIf="isFieldValid('password', 'minlength')">
+        Password must be a least 8 characters
+      </mat-error>
+    </mat-form-field>
 
-          <!--Buttons-->
-          <div class="submit-btn">
-            <button type="submit" class="btn-primary" (click)="onSubmit()">
-              Sign In
-            </button>
-          </div>
-          <div class="forgot-password">
-            <!--Optional-->
-            <a class="link" routerLink="">Forgot Password?</a>
-          </div>
-        </form>
-
-        <div class="register-btn">
-          <!--TODO: create the route to register module-->
-          <button class="register" type="button" (click)="onNavigateTo('')">
-            Create an account
-          </button>
-        </div>
-      </div>
-      <div class="col-6-brand">
-        <h1 class="brand">Accesa Courses MVP</h1>
-      </div>
+    <!--Buttons-->
+    <div class="submit-btn">
+      <button type="submit" mat-raised-button color="primary" (click)="onSubmit()">
+        Sign In
+      </button>
     </div>
+    <div class="forgot-password">
+      <!--Optional-->
+      <a class="link">Forgot Password?</a>
+    </div>
+  </form>
+
+  <div class="register-btn">
+    <!--TODO: create the route to register module-->
+    <button
+      mat-raised-button
+      type="button"
+      color="primary"
+      (click)="onNavigateTo('login-register/register')"
+    >
+      Create an account
+    </button>
   </div>
 </section>
