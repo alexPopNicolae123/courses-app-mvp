@@ -1,37 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ICourse } from '../core/models/course.model';
+import { CourseService } from '../core/services/course.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'courses-app-all-courses',
   templateUrl: 'courses-list.component.html',
-  styleUrls: ['courses-list.component.scss'],
+  styleUrls: ['courses-list.component.sass'],
 })
-export class CoursesListComponent implements OnInit {
-  courses = [
-    {
-      id: 1,
-      title: 'Dev-Ops',
-      description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat incidunt hic commodi, excepturi cumque inventore voluptatibus id aspernatur autem perferendis fugit maxime iste labore, laboriosam iure minus ea in dolorum?'
-    },
-    {
-      id: 2,
-      title: 'Front-End',
-      description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat incidunt hic commodi, excepturi cumque inventore voluptatibus id aspernatur autem perferendis fugit maxime iste labore, laboriosam iure minus ea in dolorum?'
-    }, {
-      id: 3,
-      title: 'Alghoritms',
-      description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat incidunt hic commodi, excepturi cumque inventore voluptatibus id aspernatur autem perferendis fugit maxime iste labore, laboriosam iure minus ea in dolorum?'
-    }, {
-      id: 4,
-      title: 'Back-end',
-      description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat incidunt hic commodi, excepturi cumque inventore voluptatibus id aspernatur autem perferendis fugit maxime iste labore, laboriosam iure minus ea in dolorum?'
-    }, {
-      id: 5,
-      title: 'Data Structure',
-      description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat incidunt hic commodi, excepturi cumque inventore voluptatibus id aspernatur autem perferendis fugit maxime iste labore, laboriosam iure minus ea in dolorum?'
-    }
-  ];
+export class CoursesListComponent implements OnInit, OnDestroy {
+  sub: Subscription | undefined;
+  errorMessage = '';
+
+  courses: ICourse[] = [];
+
+  constructor(private courseService: CourseService) {}
 
   ngOnInit(): void {
-    console.log('works');
+    this.onGetCourses();
+  }
+
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe();
+  }
+
+  /**
+   * Method to get the courses
+   */
+  onGetCourses(): void {
+    this.sub = this.courseService.getCourses().subscribe({
+      next: (courses) => {
+        this.courses = courses;
+      },
+      error: (err) => (this.errorMessage = err),
+    });
   }
 }

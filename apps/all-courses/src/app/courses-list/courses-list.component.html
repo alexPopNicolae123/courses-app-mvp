@@ -1,6 +1,12 @@
-<mat-list *ngFor="let course of courses">
-  <mat-list-item>
-    <span matListItemTitle color="primary">{{ course.title }}</span>
-    <span matListItemLine> {{ course.description }}</span>
-  </mat-list-item>
-</mat-list>
+<div class="container" *ngIf="courses">
+  <mat-list *ngFor="let course of courses">
+    <mat-list-item>
+      <span matListItemTitle color="primary">{{ course.title }}</span>
+      <span matListItemLine> {{ course.description }}</span>
+    </mat-list-item>
+  </mat-list>
+</div>
+
+<div class="container" *ngIf="!courses">
+   Loading courses ...
+</div>

@@ -10,6 +10,12 @@ const coursesRoute: Route[] = [
 
 @NgModule({
   declarations: [CoursesListComponent],
-  imports: [CommonModule, RouterModule.forChild(coursesRoute), MatListModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(coursesRoute),
+    MatListModule,
+  ],
+  providers: [],
+  bootstrap: [CoursesListComponent],
 })
 export class CoursesListModule {}
