@@ -1,86 +1,84 @@
-<section class="register">
+<section class="container">
   <div class="register-container">
-    <div class="row">
-      <div class="col-6">
-        <h1 class="title">Register</h1>
-        <form class="register-form" [formGroup]="registerForm">
-          <div class="first-name">
-            <label>First Name</label>
-            <input
-              class="firstName-input"
-              type="text"
-              formControlName="firstName"
-              placeholder="First Name"
-            />
-            <span
-              *ngIf="isFieldValid('firstName', 'required')"
-              class="err-message"
-            >
-              First Name required
-            </span>
-          </div>
-          <div class="last-name">
-            <label>Last Name</label>
-            <input
-              class="lastName-input"
-              type="text"
-              formControlName="lastName"
-              placeholder="Last Name"
-            />
-            <span
-              *ngIf="isFieldValid('lastName', 'required')"
-              class="err-message"
-            >
-              Last Name required
-            </span>
-          </div>
-          <div class="email">
-            <label>Email</label>
-            <input
-              class="email-input"
-              type="text"
-              formControlName="email"
-              placeholder="Email"
-            />
-            <span *ngIf="isFieldValid('email', 'required')" class="err-message">
-              Email required
-            </span>
-            <span *ngIf="isFieldValid('email', 'email')" class="err-message">
-              Enter a valid email address
-            </span>
-          </div>
-          <div class="password">
-            <label>Password</label>
-            <input
-              class="password-input"
-              type="password"
-              formControlName="password"
-              placeholder="Password"
-            />
-            <span
-              *ngIf="isFieldValid('password', 'required')"
-              class="err-message"
-            >
-              This field is required
-            </span>
+    <h1 class="logo">Register</h1>
+    <form class="register-form" [formGroup]="registerForm">
+      
+      <!--First Name-->
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="firstName"
+          placeholder="First Name"
+        />
+        <mat-error *ngIf="isFieldValid('firstName', 'required')">
+          First Name required
+        </mat-error>
+      </mat-form-field>
 
-            <span
-              *ngIf="isFieldValid('password', 'minlength')"
-              class="err-message"
-            >
-              Password must be a least 8 characters
-            </span>
-          </div>
-          <div class="submit-button">
-            <button type="submit" class="btn-primary" (click)="onSubmit()">
-              Register
-            </button>
-          </div>
-        </form>
+      <!--Last Name-->
+      <mat-form-field class="last-name" appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="lastName"
+          placeholder="Last Name"
+        />
+        <mat-error *ngIf="isFieldValid('lastName', 'required')">
+          Last Name required
+        </mat-error>
+      </mat-form-field>
+
+      <!--Email-->
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="email"
+          placeholder="Email"
+        />
+        <mat-error *ngIf="isFieldValid('email', 'required')">
+          Email required
+        </mat-error>
+        <mat-error *ngIf="isFieldValid('email', 'email')">
+          Enter a valid email address
+        </mat-error>
+      </mat-form-field>
+
+      <!--Password-->
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="password"
+          placeholder="Password"
+        />
+        <mat-error *ngIf="isFieldValid('password', 'required')">
+          This field is required
+        </mat-error>
+
+        <mat-error *ngIf="isFieldValid('password', 'minlength')">
+          Password must be a least 8 characters
+        </mat-error>
+      </mat-form-field>
+
+      <div class="submit-btn">
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          (click)="onSubmit()"
+        >
+          Register
+        </button>
       </div>
-      <div class="col-6-brand">
-        <h1 class="brand">Accesa Courses MVP</h1>
-      </div>
-    </div>
+    </form>
+  </div>
+  <div class="brand-container">
+
   </div>
 </section>

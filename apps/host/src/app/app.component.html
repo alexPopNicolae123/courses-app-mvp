@@ -1,9 +1,16 @@
-<ul class="remote-menu">
-  <li><a routerLink="home">Home</a></li>
-  <li><a routerLink="login-register/login">Login</a></li>
-  <li><a routerLink="all-courses">AllCourses</a></li>
-  <li><a routerLink="create-course">CreateCourse</a></li>
-  <li><a routerLink="course-details">CourseDetails</a></li>
-  <li><a routerLink="admin">Admin</a></li>
-</ul>
+<mat-toolbar color="primary">
+  <a class="brand" routerLink="">
+    MVP
+  </a>
+
+  <ul class="remote-menu">
+    <li><a routerLink="home">Home</a></li>
+    <li><a routerLink="all-courses/courses">Courses</a></li>
+    <li><a routerLink="create-course">CreateCourse</a></li>
+    <li><a routerLink="course-details">CourseDetails</a></li>
+    <li><a routerLink="login-register/login">Login</a></li>
+    <li><a routerLink="admin">Admin</a></li>
+  </ul>
+  </mat-toolbar>
+
 <router-outlet></router-outlet>
