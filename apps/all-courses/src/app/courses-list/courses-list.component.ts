@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ICourse } from '../core/models/course.model';
-import { CourseService } from '../core/services/course.service';
+//import { CourseService } from '../core/services/course.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -13,26 +13,58 @@ export class CoursesListComponent implements OnInit, OnDestroy {
   errorMessage = '';
 
   courses: ICourse[] = [];
-
-  constructor(private courseService: CourseService) {}
+  mockCourses = [
+    {
+      id: 1,
+      title: 'Dev-Ops',
+      description:
+        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat incidunt hic commodi, excepturi cumque inventore voluptatibus id aspernatur autem perferendis fugit maxime iste labore, laboriosam iure minus ea in dolorum?',
+    },
+    {
+      id: 2,
+      title: 'Front-End',
+      description:
+        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat incidunt hic commodi, excepturi cumque inventore voluptatibus id aspernatur autem perferendis fugit maxime iste labore, laboriosam iure minus ea in dolorum?',
+    },
+    {
+      id: 3,
+      title: 'Alghoritms',
+      description:
+        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat incidunt hic commodi, excepturi cumque inventore voluptatibus id aspernatur autem perferendis fugit maxime iste labore, laboriosam iure minus ea in dolorum?',
+    },
+    {
+      id: 4,
+      title: 'Back-end',
+      description:
+        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat incidunt hic commodi, excepturi cumque inventore voluptatibus id aspernatur autem perferendis fugit maxime iste labore, laboriosam iure minus ea in dolorum?',
+    },
+    {
+      id: 5,
+      title: 'Data Structure',
+      description:
+        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat incidunt hic commodi, excepturi cumque inventore voluptatibus id aspernatur autem perferendis fugit maxime iste labore, laboriosam iure minus ea in dolorum?',
+    },
+  ];
 
   ngOnInit(): void {
-    this.onGetCourses();
+    //this.onGetCourses();
+    console.log('OnInit works');
   }
 
   ngOnDestroy(): void {
-    this.sub?.unsubscribe();
+    // this.sub?.unsubscribe();
+    console.log('Destroy works');
   }
 
   /**
    * Method to get the courses
    */
-  onGetCourses(): void {
-    this.sub = this.courseService.getCourses().subscribe({
-      next: (courses) => {
-        this.courses = courses;
-      },
-      error: (err) => (this.errorMessage = err),
-    });
-  }
+  // onGetCourses(): void {
+  //   this.sub = this.courseService.getCourses().subscribe({
+  //     next: courses => {
+  //       this.courses = courses;
+  //     },
+  //     error: (err) => (this.errorMessage = err),
+  //   });
+  // }
 }

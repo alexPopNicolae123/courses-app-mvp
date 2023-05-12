@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { CoursesListComponent } from './courses-list.component';
 import { Route, RouterModule } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card'
+import { MatGridListModule } from '@angular/material/grid-list'
 
 const coursesRoute: Route[] = [
   { path: 'courses', component: CoursesListComponent },
@@ -14,6 +16,8 @@ const coursesRoute: Route[] = [
     CommonModule,
     RouterModule.forChild(coursesRoute),
     MatListModule,
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [CoursesListComponent],

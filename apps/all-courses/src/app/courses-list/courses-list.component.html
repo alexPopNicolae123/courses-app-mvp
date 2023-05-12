@@ -1,12 +1,6 @@
-<div class="container" *ngIf="courses">
-  <mat-list *ngFor="let course of courses">
-    <mat-list-item>
-      <span matListItemTitle color="primary">{{ course.title }}</span>
-      <span matListItemLine> {{ course.description }}</span>
-    </mat-list-item>
-  </mat-list>
-</div>
-
-<div class="container" *ngIf="!courses">
-   Loading courses ...
-</div>
+<mat-grid-list cols="4">
+  <mat-grid-tile *ngFor="let course of mockCourses">
+    <h1>{{ course.title }}</h1>
+    <!-- <p>{{ course.description }}</p> -->
+  </mat-grid-tile>
+</mat-grid-list>

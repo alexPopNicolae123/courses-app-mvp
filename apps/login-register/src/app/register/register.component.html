@@ -1,10 +1,10 @@
-<section>
-  <div class="container">
-    <h1 class="title">Register</h1>
+<section class="container">
+  <div class="register-container">
+    <h1 class="logo">Register</h1>
     <form class="register-form" [formGroup]="registerForm">
       
       <!--First Name-->
-      <mat-form-field>
+      <mat-form-field appearance="fill">
         <mat-label>First Name</mat-label>
         <input
           matInput
@@ -18,7 +18,7 @@
       </mat-form-field>
 
       <!--Last Name-->
-      <mat-form-field class="last-name">
+      <mat-form-field class="last-name" appearance="fill">
         <mat-label>Last Name</mat-label>
         <input
           matInput
@@ -32,7 +32,7 @@
       </mat-form-field>
 
       <!--Email-->
-      <mat-form-field>
+      <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
         <input
           matInput
@@ -49,7 +49,7 @@
       </mat-form-field>
 
       <!--Password-->
-      <mat-form-field>
+      <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
         <input
           matInput
@@ -66,7 +66,7 @@
         </mat-error>
       </mat-form-field>
 
-      <div class="submit-button">
+      <div class="submit-btn">
         <button
           type="submit"
           mat-raised-button
@@ -77,5 +77,8 @@
         </button>
       </div>
     </form>
+  </div>
+  <div class="brand-container">
+
   </div>
 </section>

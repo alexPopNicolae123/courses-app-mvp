@@ -7,14 +7,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CourseService {
-  private coursesUrl = 'api/courses/courses.json';
+  private courseUrl = 'api/courses/courses.json';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getCourses(): Observable<ICourse[]> {
-    return this.httpClient.get<ICourse[]>(this.coursesUrl).pipe(
-        tap((data) => console.log('All', data)),
-        catchError(this.handleError)
+    return this.httpClient.get<ICourse[]>(this.courseUrl).pipe(
+      tap((data) => console.log('All', data)),
+      catchError(this.handleError)
     );
   }
 

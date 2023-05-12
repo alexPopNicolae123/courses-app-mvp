@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,7 +15,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
       { initialNavigation: 'enabledBlocking' }
     ),
   ],
-  providers: [HttpClient],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
