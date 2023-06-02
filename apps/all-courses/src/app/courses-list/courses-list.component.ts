@@ -44,6 +44,24 @@ export class CoursesListComponent implements OnInit, OnDestroy {
       description:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat incidunt hic commodi, excepturi cumque inventore voluptatibus id aspernatur autem perferendis fugit maxime iste labore, laboriosam iure minus ea in dolorum?',
     },
+    {
+      id: 6,
+      title: 'Data Structure',
+      description:
+        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat incidunt hic commodi, excepturi cumque inventore voluptatibus id aspernatur autem perferendis fugit maxime iste labore, laboriosam iure minus ea in dolorum?',
+    },
+    {
+      id: 7,
+      title: 'Data Structure',
+      description:
+        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat incidunt hic commodi, excepturi cumque inventore voluptatibus id aspernatur autem perferendis fugit maxime iste labore, laboriosam iure minus ea in dolorum?',
+    },
+    {
+      id: 8,
+      title: 'Data Structure',
+      description:
+        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat incidunt hic commodi, excepturi cumque inventore voluptatibus id aspernatur autem perferendis fugit maxime iste labore, laboriosam iure minus ea in dolorum?',
+    },
   ];
 
   ngOnInit(): void {

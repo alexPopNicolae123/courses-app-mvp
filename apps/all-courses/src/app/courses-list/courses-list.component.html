@@ -1,6 +1,59 @@
-<mat-grid-list cols="4">
-  <mat-grid-tile *ngFor="let course of mockCourses">
-    <h1>{{ course.title }}</h1>
-    <!-- <p>{{ course.description }}</p> -->
-  </mat-grid-tile>
-</mat-grid-list>
+<div class="hero">
+  <div class="hero-content-box">
+    <h1 class="hero-title">Learn from anywere</h1>
+    <h2 class="hero-subtitile">
+      Technology is bringing a massive wave of evolution on learning things in
+      different ways.
+    </h2>
+    <button class="start-button button-color-1">Ready to get started?</button>
+  </div>
+</div>
+<section>
+  <div class="wrapper">
+    <div class="section-title-box">
+      <h1 class="section-title">Via School Categories Coureses</h1>
+      <h2 class="section-subtitle">
+        Cum doctus civibus efficiantur in imperdiet deterruisset.
+      </h2>
+    </div>
+    <div>
+      <mat-grid-list cols="4" rowHeight="300px">
+        <mat-grid-tile *ngFor="let course of mockCourses">
+          <h1>{{ course.title }}</h1>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+    <div class="button-section">
+      <button class="start-button button-color-2">view All Courses</button>
+    </div>
+  </div>
+</section>
+<section class="delimiter">
+  <div class="content-box">
+    <h2 class="delimiter-subtitle">STARTING ONLINE LEARNING</h2>
+    <h1 class="delimiter-title">
+      ENHANCE YOUR SKILLS WITH BEST ONLINE COURSES
+    </h1>
+    <button class="start-button button-color-1">Get Started Now</button>
+  </div>
+</section>
+<section>
+  <div class="wrapper">
+    <div class="section-title-box">
+      <h1 class="section-title">Browse Our Top Courses</h1>
+      <h2 class="section-subtitle">
+        Cum doctus civibus efficiantur in imperdiet deterruisset.
+      </h2>
+    </div>
+    <div class="courses-box">
+      <courses-app-cardcourse
+        *ngFor="let course of mockCourses"
+        [dateModified]="course.id"
+        [courseTitle]="course.title"
+      ></courses-app-cardcourse>
+    </div>
+    <div class="button-section">
+      <button class="start-button button-color-2">View All Courses</button>
+    </div>
+  </div>
+</section>

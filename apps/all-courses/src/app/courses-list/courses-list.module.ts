@@ -5,13 +5,14 @@ import { Route, RouterModule } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card'
 import { MatGridListModule } from '@angular/material/grid-list'
+import { CardcourseComponent } from 'libs/shared/course-card/src/lib/cardcourse/cardcourse.component';
 
 const coursesRoute: Route[] = [
   { path: 'courses', component: CoursesListComponent },
 ];
 
 @NgModule({
-  declarations: [CoursesListComponent],
+  declarations: [CoursesListComponent,CardcourseComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(coursesRoute),
