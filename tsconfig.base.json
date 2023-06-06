@@ -16,6 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@courses-app/shared/api": ["libs/shared/api/src/index.ts"],
+      "@courses-app/shared/course-card": [
+        "libs/shared/course-card/src/index.ts"
+      ],
       "@courses-app/shared/footer": ["libs/shared/footer/src/index.ts"]
     }
   },
