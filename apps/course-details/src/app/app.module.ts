@@ -10,10 +10,10 @@ import { AppComponent } from './app.component';
     RouterModule.forRoot(
       [
         {
-          path: '',
+          path: 'details',
           loadChildren: () =>
-            import('./remote-entry/entry.module').then(
-              (m) => m.RemoteEntryModule
+            import('./coursedetail/coursedetail.module').then(
+              (m) => m.CoursedetailModule
             ),
         },
       ],

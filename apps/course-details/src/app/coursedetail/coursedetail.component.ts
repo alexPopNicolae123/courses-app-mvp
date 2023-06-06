@@ -1,19 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ICourse } from '../core/models/course.model';
-//import { CourseService } from '../core/services/course.service';
-import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ICourse } from '../../../../all-courses/src/app/core/models/course.model';
 
 @Component({
-  selector: 'courses-app-all-courses',
-  templateUrl: 'courses-list.component.html',
-  styleUrls: ['courses-list.component.sass'],
+  selector: 'courses-app-coursedetail',
+  templateUrl: './coursedetail.component.html',
+  styleUrls: ['./coursedetail.component.sass'],
 })
-export class CoursesListComponent implements OnInit, OnDestroy {
-  sub: Subscription | undefined;
-  errorMessage = '';
-
-  courses: ICourse[] = [];
+export class CoursedetailComponent implements OnInit {
   mockCourses = [
     {
       id: 1,
@@ -65,32 +59,10 @@ export class CoursesListComponent implements OnInit, OnDestroy {
     },
   ];
 
-  constructor(private router:Router){}
-
+  course!: ICourse;
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    //this.onGetCourses();
-    console.log('OnInit works');
+     [this.course] = this.mockCourses.filter((course) => (course.id === +this.route.snapshot.params['id']));
   }
-
-  ngOnDestroy(): void {
-    // this.sub?.unsubscribe();
-    console.log('Destroy works');
-  }
-
-  onLoadCourse(id:number){
-    this.router.navigate(['/course-details/details',id]);
-  }
-
-  /**
-   * Method to get the courses
-   */
-  // onGetCourses(): void {
-  //   this.sub = this.courseService.getCourses().subscribe({
-  //     next: courses => {
-  //       this.courses = courses;
-  //     },
-  //     error: (err) => (this.errorMessage = err),
-  //   });
-  // }
 }

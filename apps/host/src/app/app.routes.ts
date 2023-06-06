@@ -14,7 +14,7 @@ export const appRoutes: Route[] = [
   {
     path: 'course-details',
     loadChildren: () =>
-      import('course-details/Module').then((m) => m.RemoteEntryModule),
+      import('course-details/Module').then((m) => m.CoursedetailModule),
   },
   {
     path: 'create-course',

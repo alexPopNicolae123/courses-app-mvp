@@ -16,13 +16,11 @@
         Cum doctus civibus efficiantur in imperdiet deterruisset.
       </h2>
     </div>
-    <div>
-      <mat-grid-list cols="4" rowHeight="300px">
-        <mat-grid-tile *ngFor="let course of mockCourses">
-          <h1>{{ course.title }}</h1>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </div>
+    <mat-grid-list cols="4" rowHeight="300px">
+      <mat-grid-tile *ngFor="let course of mockCourses">
+        <h1>{{ course.title }}</h1>
+      </mat-grid-tile>
+    </mat-grid-list>
     <div class="button-section">
       <button class="start-button button-color-2">view All Courses</button>
     </div>
@@ -47,6 +45,7 @@
     </div>
     <div class="courses-box">
       <courses-app-cardcourse
+        (click)="onLoadCourse(course.id)"
         *ngFor="let course of mockCourses"
         [dateModified]="course.id"
         [courseTitle]="course.title"
